@@ -17,4 +17,19 @@ class Product extends Model
     {
         return $this->belongsTo(Brand::class,'brand_id');
     }
+
+        public function inventory()
+    {
+        return $this->hasOne(Inventory::class);
+    }
+
+        public function inventoryTransactions()
+    {
+        return $this->hasMany(InventoryTransaction::class);
+    }
+
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
 }

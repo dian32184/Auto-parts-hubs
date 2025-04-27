@@ -155,9 +155,9 @@
                   <div class="slideshow-text container p-3 p-xl-5">
                     <h2
                       class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
-                      Women's <br /><strong>ACCESSORIES</strong></h2>
+                      Vehicle's<br /><strong>ACCESSORIES</strong></h2>
                     <p class="mb-0 animate animate_fade animate_btt animate_delay-5">Accessories are the best way to
-                      update your look. Add a title edge with new styles and new colors, or go for timeless pieces.</h6>
+                      update your vehicle look.</h6>
                   </div>
                 </div>
                 <div class="slide-split_media position-relative">
@@ -176,9 +176,9 @@
                   <div class="slideshow-text container p-3 p-xl-5">
                     <h2
                       class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
-                      Women's <br /><strong>ACCESSORIES</strong></h2>
-                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">Accessories are the best way to
-                      update your look. Add a title edge with new styles and new colors, or go for timeless pieces.</h6>
+                      Vehicle's <br /><strong>ACCESSORIES</strong></h2>
+                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">ccessories are the best way to
+                      update your vehicle look.</h6>
                   </div>
                 </div>
                 <div class="slide-split_media position-relative">
@@ -197,9 +197,9 @@
                   <div class="slideshow-text container p-3 p-xl-5">
                     <h2
                       class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
-                      Women's <br /><strong>ACCESSORIES</strong></h2>
-                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">Accessories are the best way to
-                      update your look. Add a title edge with new styles and new colors, or go for timeless pieces.</h6>
+                      Vehicle's <br /><strong>ACCESSORIES</strong></h2>
+                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">ccessories are the best way to
+                      update your vehicle look.</h6>
                   </div>
                 </div>
                 <div class="slide-split_media position-relative">
@@ -228,13 +228,7 @@
           </div>
 
           <div class="shop-acs d-flex align-items-center justify-content-between justify-content-md-end flex-grow-1">
-            <select class="shop-acs__select form-select w-auto border-0 py-0 order-1 order-md-0" style="margin-right:20px;" aria-label="Page Size" id="pagesize"
-              name="pagesize">
-              <option value="12" {{$size==12? 'selected':''}}>Show</option>                        
-              <option value="24" {{$size==24? 'selected':''}}>24</option>
-              <option value="48" {{$size==48? 'selected':''}}>48</option>
-              <option value="102" {{$size==102? 'selected':''}}>102</option>
-            </select>
+              
 
             <select class="shop-acs__select form-select w-auto border-0 py-0 order-1 order-md-0" aria-label="Sort Items" name="orderby" id="orderby">
               <option value="-1" {{ $order == -1 ? 'selected' : '' }}>Default</option>

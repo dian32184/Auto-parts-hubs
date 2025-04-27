@@ -3,7 +3,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\WishlistController;
 use App\Http\Middleware\AuthAdmin;
@@ -33,7 +35,6 @@ Route::post('/wishlist/move-to-cart/{rowId}',[WishlistController::class,'move_to
 Route::middleware(['auth'])->group(function(){
     Route::get('/account-dashboard', [Usercontroller::class, 'index'])->name('user.index');
 });
-
 Route::middleware(['auth',AuthAdmin::class])->group(function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/admin/brands',[AdminController::class,'brands'])->name('admin.brands');
@@ -56,4 +57,24 @@ Route::middleware(['auth',AuthAdmin::class])->group(function(){
     Route::get('/admin/product/{id}/edit', [AdminController::class,'edit_product'])->name('admin.product.edit');
     Route::put('/admin/product/update',[AdminController::class,'update_product'])->name('admin.product.update');
     Route::delete('/admin/product/{id}/delete',[AdminController::class,'delete_product'])->name('admin.product.delete');
+
+    Route::get('/inventory', [InventoryController::class, 'index'])->name('admin.inventory.index');
+    Route::get('/inventory/create', [InventoryController::class, 'create'])->name('admin.inventory.create');
+    Route::post('/inventory', [InventoryController::class, 'store'])->name('admin.inventory.store');
+    Route::get('/inventory/{id}', [InventoryController::class, 'show'])->name('admin.inventory.show');
+    Route::get('/{id}/edit', [InventoryController::class, 'edit'])->name('admin.inventory.edit');
+    Route::put('/{id}', [InventoryController::class, 'update'])->name('admin.inventory.update');
+    Route::delete('/{id}', [InventoryController::class, 'destroy'])->name('admin.inventory.destroy');
+
+    Route::get('/inventory/stock-in/form', [InventoryController::class, 'stockInForm'])->name('admin.inventory.stock-in.form');
+    Route::post('/inventory/stock-in', [InventoryController::class, 'stockIn'])->name('admin.inventory.stock-in');
+    Route::get('/inventory/stock-out/form', [InventoryController::class, 'stockOutForm'])->name('admin.inventory.stock-out.form');
+    Route::post('/inventory/stock-out', [InventoryController::class, 'stockOut'])->name('admin.inventory.stock-out');
+
+    Route::get('/suppliers', [SupplierController::class, 'index'])->name('suppliers');
+    Route::get('/supplier/add', [SupplierController::class, 'create'])->name('supplier.add');
+    Route::post('/supplier/store', [SupplierController::class, 'store'])->name('supplier.store');
+    Route::get('/supplier/edit/{id}', [SupplierController::class, 'edit'])->name('supplier.edit');
+    Route::put('/supplier/update/{id}', [SupplierController::class, 'update'])->name('supplier.update');
+    Route::delete('/supplier/delete/{id}', [SupplierController::class, 'destroy'])->name('supplier.delete');
 });

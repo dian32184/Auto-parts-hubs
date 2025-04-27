@@ -10,9 +10,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="author" content="surfside media" />
-  <link rel="stylesheet" type="text/css" href="{{asset('css/animate.min.css')}}">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="surfside media" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/animate.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/animation.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-select.min.css')}}">
@@ -112,6 +112,56 @@
                                         <li class="sub-menu-item">
                                             <a href="{{route('admin.categories')}}" class="">
                                                 <div class="text">Categories</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- New Supplier Menu Item -->
+                                <li class="menu-item has-children">
+                                    <a href="javascript:void(0);" class="menu-item-button">
+                                        <div class="icon"><i class="icon-truck"></i></div>
+                                        <div class="text">Supplier</div>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('supplier.add') }}" class="">
+                                                <div class="text">New Supplier</div>
+                                            </a>
+                                        </li>
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('suppliers') }}" class="">
+                                                <div class="text">Suppliers</div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <!-- End of Supplier Menu Item -->
+
+                                <li class="menu-item has-children">
+                                    <a href="javascript:void(0);" class="menu-item-button">
+                                        <div class="icon"><i class="icon-package"></i></div>
+                                        <div class="text">Inventory</div>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('admin.inventory.index') }}" class="">
+                                                <div class="text">Inventory List</div>
+                                            </a>
+                                        </li>
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('admin.inventory.create') }}" class="">
+                                                <div class="text">Add Inventory</div>
+                                            </a>
+                                        </li>
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('admin.inventory.stock-in.form') }}" class="">
+                                                <div class="text">Stock In</div>
+                                            </a>
+                                        </li>
+                                        <li class="sub-menu-item">
+                                            <a href="{{ route('admin.inventory.stock-out.form') }}" class="">
+                                                <div class="text">Stock Out</div>
                                             </a>
                                         </li>
                                     </ul>
@@ -388,9 +438,6 @@
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="popup-wrap user type-header">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
@@ -459,7 +506,7 @@
                         @yield('content')
 
                         <div class="bottom-page">
-                            <div class="body-text">Copyright © 2024 SurfsideMedia</div>
+                            <div class="body-text">Copyright © 2025 AutoParts_Hub</div>
                         </div>
                     </div>
 
