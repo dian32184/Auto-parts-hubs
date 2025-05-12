@@ -42,8 +42,10 @@
                     <div class="box-logo">
                         <a href="{{ route('admin.index') }}" id="site-logo-inner">
                             <img class="" id="logo_header" alt="" src="{{asset('images/logo/logo.png')}}"
-                                data-light="{{asset('images/logo/logo.png')}}" data-dark="{{asset('images/logo/logo.png')}}">
-                        </a>
+                                data-light="{{asset('images/logo/logo.png')}}" data-dark="{{asset('images/logo/logo.png')}}
+                                width = "100" height = "40">
+
+                            </a>
                         <div class="button-show-hide">
                             <i class="icon-menu-left"></i>
                         </div>
@@ -192,10 +194,10 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="coupons.html" class="">
+                                    <a href="{{route('admin.coupons')}}" class="">
                                         <div class="icon"><i class="icon-grid"></i></div>
                                         <div class="text">Coupons</div>
-                                    </a>
+                                    </>
                                 </li>
 
                                 <li class="menu-item">
@@ -230,11 +232,11 @@
                     <div class="header-dashboard">
                         <div class="wrap">
                             <div class="header-left">
-                                <a href="index-2.html">
-                                    <img class="" id="logo_header_mobile" alt="" src="{{asset('images/logo/logo.png')}}"
-                                        data-light="{{asset('images/logo/logo.png')}}" data-dark="{{asset('images/logo/logo.png')}}"
-                                        data-width="154px" data-height="52px" data-retina="{{asset('images/logo/logo.png')}}">
-                                </a>
+                            <a href="index-2.html">
+    <img class="logo-image-mobile" id="logo_header_mobile" alt="Logo" src="{{asset('images/logo/logo.png')}}"
+        data-light="{{asset('images/logo/logo.png')}}" data-dark="{{asset('images/logo/logo.png')}}"
+        width="120" height="40" data-width="120px" data-height="40px" data-retina="{{asset('images/logo/logo.png')}}">
+</a>
                                 <div class="button-show-hide">
                                     <i class="icon-menu-left"></i>
                                 </div>

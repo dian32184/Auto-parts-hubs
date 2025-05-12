@@ -17,17 +17,13 @@
               <img loading="lazy" src="{{asset('assets/images/home/demo3/slideshow-character1.png')}}" width="542" height="733"
                 alt="Woman Fashion 1"
                 class="slideshow-character__img animate animate_fade animate_btt animate_delay-9 w-auto h-auto" />
-              <div class="character_markup type2">
-                <p
-                  class="text-uppercase font-sofia mark-grey-color animate animate_fade animate_btt animate_delay-10 mb-0">
-                  Dresses</p>
-              </div>
+          
             </div>
             <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
               <h6 class="text_dash text-uppercase fs-base fw-medium animate animate_fade animate_btt animate_delay-3">
                 New Arrivals</h6>
-              <h2 class="h1 fw-normal mb-0 animate animate_fade animate_btt animate_delay-5">Night Spring</h2>
-              <h2 class="h1 fw-bold animate animate_fade animate_btt animate_delay-5">Dresses</h2>
+              <h2 class="h1 fw-normal mb-0 animate animate_fade animate_btt animate_delay-5">Auto Parts</h2>
+              <h2 class="h1 fw-bold animate animate_fade animate_btt animate_delay-5">Hub</h2>
               <a href="#"
                 class="btn-link btn-link_lg default-underline fw-medium animate animate_fade animate_btt animate_delay-7">Shop
                 Now</a>
@@ -41,16 +37,13 @@
               <img loading="lazy" src="{{asset('assets/images/slideshow-character1.png')}}" width="400" height="733"
                 alt="Woman Fashion 1"
                 class="slideshow-character__img animate animate_fade animate_btt animate_delay-9 w-auto h-auto" />
-              <div class="character_markup">
-                <p class="text-uppercase font-sofia fw-bold animate animate_fade animate_rtl animate_delay-10">Summer
-                </p>
-              </div>
+              
             </div>
             <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
               <h6 class="text_dash text-uppercase fs-base fw-medium animate animate_fade animate_btt animate_delay-3">
                 New Arrivals</h6>
-              <h2 class="h1 fw-normal mb-0 animate animate_fade animate_btt animate_delay-5">Night Spring</h2>
-              <h2 class="h1 fw-bold animate animate_fade animate_btt animate_delay-5">Dresses</h2>
+              <h2 class="h1 fw-normal mb-0 animate animate_fade animate_btt animate_delay-5">Auto Parts</h2>
+              <h2 class="h1 fw-bold animate animate_fade animate_btt animate_delay-5">Hub</h2>
               <a href="#"
                 class="btn-link btn-link_lg default-underline fw-medium animate animate_fade animate_btt animate_delay-7">Shop
                 Now</a>
@@ -68,8 +61,8 @@
             <div class="slideshow-text container position-absolute start-50 top-50 translate-middle">
               <h6 class="text_dash text-uppercase fs-base fw-medium animate animate_fade animate_btt animate_delay-3">
                 New Arrivals</h6>
-              <h2 class="h1 fw-normal mb-0 animate animate_fade animate_btt animate_delay-5">Night Spring</h2>
-              <h2 class="h1 fw-bold animate animate_fade animate_btt animate_delay-5">Dresses</h2>
+              <h2 class="h1 fw-normal mb-0 animate animate_fade animate_btt animate_delay-5">Auto Parts</h2>
+              <h2 class="h1 fw-bold animate animate_fade animate_btt animate_delay-5">Hub</h2>
               <a href="#"
                 class="btn-link btn-link_lg default-underline fw-medium animate animate_fade animate_btt animate_delay-7">Shop
                 Now</a>
@@ -301,12 +294,7 @@
                               <use href="#icon_view" />
                             </svg></span>
                         </button>
-                        <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon_heart" />
-                          </svg>
-                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -338,12 +326,7 @@
                               <use href="#icon_view" />
                             </svg></span>
                         </button>
-                        <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon_heart" />
-                          </svg>
-                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -375,12 +358,7 @@
                               <use href="#icon_view" />
                             </svg></span>
                         </button>
-                        <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon_heart" />
-                          </svg>
-                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -413,12 +391,7 @@
                               <use href="#icon_view" />
                             </svg></span>
                         </button>
-                        <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon_heart" />
-                          </svg>
-                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -450,12 +423,7 @@
                               <use href="#icon_view" />
                             </svg></span>
                         </button>
-                        <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon_heart" />
-                          </svg>
-                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -487,12 +455,7 @@
                               <use href="#icon_view" />
                             </svg></span>
                         </button>
-                        <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon_heart" />
-                          </svg>
-                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -524,12 +487,7 @@
                               <use href="#icon_view" />
                             </svg></span>
                         </button>
-                        <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon_heart" />
-                          </svg>
-                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -562,12 +520,7 @@
                               <use href="#icon_view" />
                             </svg></span>
                         </button>
-                        <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                          <svg width="16" height="16" viewBox="0 0 20 20" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon_heart" />
-                          </svg>
-                        </button>
+
                       </div>
                     </div>
                   </div>
@@ -644,11 +597,7 @@
                         <use href="#icon_view" />
                       </svg></span>
                   </button>
-                  <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <use href="#icon_heart" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             </div>
@@ -680,11 +629,7 @@
                         <use href="#icon_view" />
                       </svg></span>
                   </button>
-                  <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <use href="#icon_heart" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             </div>
@@ -717,11 +662,7 @@
                         <use href="#icon_view" />
                       </svg></span>
                   </button>
-                  <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <use href="#icon_heart" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             </div>
@@ -755,11 +696,7 @@
                         <use href="#icon_view" />
                       </svg></span>
                   </button>
-                  <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <use href="#icon_heart" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             </div>
@@ -791,11 +728,7 @@
                         <use href="#icon_view" />
                       </svg></span>
                   </button>
-                  <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <use href="#icon_heart" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             </div>
@@ -827,11 +760,7 @@
                         <use href="#icon_view" />
                       </svg></span>
                   </button>
-                  <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <use href="#icon_heart" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             </div>
@@ -863,11 +792,7 @@
                         <use href="#icon_view" />
                       </svg></span>
                   </button>
-                  <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <use href="#icon_heart" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             </div>
@@ -900,11 +825,7 @@
                         <use href="#icon_view" />
                       </svg></span>
                   </button>
-                  <button class="pc__btn-wl bg-transparent border-0 js-add-wishlist" title="Add To Wishlist">
-                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <use href="#icon_heart" />
-                    </svg>
-                  </button>
+
                 </div>
               </div>
             </div>
