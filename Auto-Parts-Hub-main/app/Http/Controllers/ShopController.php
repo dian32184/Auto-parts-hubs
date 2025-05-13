@@ -6,41 +6,60 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cart;
 
 class ShopController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $popularCategories = Category::whereNotNull('parent_id')
-            ->withCount('products')
-            ->orderBy('products_count', 'desc')
-            ->take(3)
-            ->get();
+        // Get motor and vehicle categories
+        $motorCategories = Category::where('type', 'motor')->get();
+        $vehicleCategories = Category::where('type', 'vehicle')->get();
 
-        return view('shop.index', compact('popularCategories'));
+        // Get products with sorting
+        $query = Product::where('status', 'active');
+
+        // Price filter
+        if ($request->has('min_price')) {
+            $query->where('regular_price', '>=', $request->min_price);
+        }
+        if ($request->has('max_price')) {
+            $query->where('regular_price', '<=', $request->max_price);
+        }
+
+        // Sorting
+        switch ($request->sort) {
+            case 'price_low':
+                $query->orderBy('regular_price', 'asc');
+                break;
+            case 'price_high':
+                $query->orderBy('regular_price', 'desc');
+                break;
+            case 'popular':
+                $query->orderBy('views', 'desc');
+                break;
+            default:
+                $query->orderBy('created_at', 'desc');
+        }
+
+        $products = $query->paginate(12);
+
+        return view('shop.index', compact(
+            'motorCategories',
+            'vehicleCategories',
+            'products'
+        ));
     }
 
-    public function category($slug)
+    public function category($category)
     {
-        $category = Category::where('slug', $slug)->firstOrFail();
+        $category = Category::where('slug', $category)->firstOrFail();
         
-        if ($category->parent_id === null) {
-            // This is a main category, show its subcategories
-            $subcategories = Category::where('parent_id', $category->id)->get();
-            return view('shop.category', compact('category', 'subcategories'));
-        } else {
-            // This is a subcategory, show its products
-            $mainCategory = Category::find($category->parent_id);
-            $products = Product::where('category_id', $category->id)
-                ->where('status', 'active')
-                ->paginate(12);
-            
-            return view('shop.subcategory', [
-                'mainCategory' => $mainCategory,
-                'subcategory' => $category,
-                'products' => $products
-            ]);
-        }
+        $products = Product::where('category_id', $category->id)
+            ->where('status', 'active')
+            ->paginate(12);
+
+        return view('shop.category', compact('category', 'products'));
     }
 
     public function addToCart(Request $request)
@@ -82,11 +101,16 @@ class ShopController extends Controller
         ]);
     }
 
-    public function product_details($product_slug)
+    public function product_details($slug)
     {
-        $product = Product::where('slug', $product_slug)->first();
-        $rproducts = Product::where('slug','<>',$product_slug)->get()->take(8);
-        return view('details',compact('product','rproducts'));
+        $product = Product::where('slug', $slug)->firstOrFail();
+        $product->incrementViews(); // Increment the view count
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id)
+            ->where('status', 'active')
+            ->take(8)
+            ->get();
+        return view('shop.product.details', compact('product', 'relatedProducts'));
     }
 
     public function search(Request $request)

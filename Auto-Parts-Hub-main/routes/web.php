@@ -32,7 +32,7 @@ Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/search', [ShopController::class, 'search'])->name('shop.search');
 Route::get('/category/{slug}', [ShopController::class, 'category'])->name('shop.category');
 Route::get('/shop/category/{type}/{parentSlug}/{slug}', [ShopController::class, 'subcategory'])->name('shop.subcategory');
-Route::get('/shop/{product_slug}', [ShopController::class,'product_details'])->name('shop.product.details');
+Route::get('/shop/{slug}', [ShopController::class,'product_details'])->name('shop.product.details');
 
 Route::get('/cart',[CartController::class,'index'])->name('cart.index');
 Route::post('/cart/add', [ShopController::class, 'addToCart'])->name('cart.add');

@@ -17,12 +17,17 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Slider::active()->get();
-        $featuredProducts = Product::where('featured', 1)
+        $featuredProducts = Product::where('is_featured', true)
             ->where('status', 'active')
             ->orderBy('created_at', 'desc')
             ->take(8)
             ->get();
             
-        return view('home.index', compact('sliders', 'featuredProducts'));
+        $popularProducts = Product::where('status', 'active')
+            ->orderBy('views', 'desc')
+            ->take(4)
+            ->get();
+            
+        return view('index', compact('sliders', 'featuredProducts', 'popularProducts'));
     }
 }

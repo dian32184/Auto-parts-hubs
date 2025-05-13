@@ -4,6 +4,16 @@
   .filled-heart{
     color: orange;
   }
+  .product-single__image img {
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+  }
+  .product-single__thumbnail img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
 </style>
 <main class="pt-90">
     <div class="mb-md-1 pb-md-3"></div>
@@ -16,8 +26,7 @@
                 <div class="swiper-wrapper">
 
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" class="h-auto" src="{{ asset('uploads/products') }}/{{ $product->image }}" width="674"
-                      height="674" alt="" />
+                    <img loading="lazy" class="h-auto" src="{{ asset('uploads/products') }}/{{ $product->image }}" alt="" />
                     <a data-fancybox="gallery" href="{{ asset('uploads/products') }}/{{ $product->image }}" data-bs-toggle="tooltip"
                       data-bs-placement="left" title="Zoom">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,8 +37,7 @@
 
                   @foreach (explode(',',$product->images) as $gimg)
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" class="h-auto" src="{{ asset('uploads/products') }}/{{$gimg}}" width="674"
-                      height="674" alt="" />
+                    <img loading="lazy" class="h-auto" src="{{ asset('uploads/products') }}/{{$gimg}}" alt="" />
                     <a data-fancybox="gallery" href="{{ asset('uploads/products') }}/{{$gimg}}" data-bs-toggle="tooltip"
                       data-bs-placement="left" title="Zoom">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -320,7 +328,7 @@
             </div>
             <div class="product-single__review-form">
               <form name="customer-review-form">
-                <h5>Be the first to review “Message Cotton T-Shirt”</h5>
+                <h5>Be the first to review "Message Cotton T-Shirt"</h5>
                 <p>Your email address will not be published. Required fields are marked *</p>
                 <div class="select-star-rating">
                   <label>Your rating *</label>

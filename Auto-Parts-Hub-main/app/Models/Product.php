@@ -19,34 +19,62 @@ class Product extends Model
         'SKU',
         'stock_status',
         'featured',
+        'is_featured',
         'quantity',
         'image',
         'images',
         'category_id',
         'brand_id',
-        'status'
+        'status',
+        'views'
     ];
+
+    protected $casts = [
+        'is_featured' => 'boolean',
+        'featured' => 'boolean',
+        'views' => 'integer'
+    ];
+
+    public function getDiscountPercentageAttribute()
+    {
+        if ($this->sale_price && $this->regular_price) {
+            $discount = (($this->regular_price - $this->sale_price) / $this->regular_price) * 100;
+            return round($discount);
+        }
+        return 0;
+    }
+
+    public function incrementViews()
+    {
+        $this->increment('views');
+    }
 
     public function scopeActive($query)
     {
         return $query->where('status', 'active');
     }
 
-    public function category()
+    public function scopeFeatured($query)
     {
-        return $this->belongsTo(Category::class,'category_id');
-    }  
-    public function brand()
-    {
-        return $this->belongsTo(Brand::class,'brand_id');
+        return $query->where('is_featured', true);
     }
 
-        public function inventory()
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class, 'brand_id');
+    }
+
+    public function inventory()
     {
         return $this->hasOne(Inventory::class);
     }
 
-        public function inventoryTransactions()
+    public function inventoryTransactions()
     {
         return $this->hasMany(InventoryTransaction::class);
     }
