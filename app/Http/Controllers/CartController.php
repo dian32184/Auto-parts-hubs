@@ -141,8 +141,9 @@ class CartController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:20',
-            'mode' => 'required|in:card,gcash',
-            'reference_number' => 'required'
+            'mode' => 'required|in:cash,gcash,bank_transfer',
+            'payment_proof' => 'required_if:mode,gcash,bank_transfer|file|image|max:2048',
+            'notes' => 'nullable|string'
         ]);
 
         try {
@@ -150,7 +151,7 @@ class CartController extends Controller
 
             // Create order
             $order = Order::create([
-                'user_id' => auth()->id(),
+                'user_id' => auth()->check() ? auth()->id() : null,
                 'name' => $request->name,
                 'email' => $request->email,
                 'phone' => $request->phone,
@@ -174,13 +175,22 @@ class CartController extends Controller
                 ]);
             }
 
+            // Handle payment proof upload
+            $payment_proof = null;
+            if ($request->hasFile('payment_proof')) {
+                $file = $request->file('payment_proof');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $file->move(public_path('uploads/payments'), $filename);
+                $payment_proof = $filename;
+            }
+
             // Create transaction record
             Transaction::create([
-                'user_id' => auth()->id(),
+                'user_id' => auth()->check() ? auth()->id() : null,
                 'order_id' => $order->id,
                 'mode' => $request->mode,
-                'status' => 'pending',
-                'reference_number' => $request->reference_number
+                'status' => $request->mode === 'cash' ? 'pending' : 'processing',
+                'proof' => $payment_proof
             ]);
 
             // Clear cart and coupon

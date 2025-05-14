@@ -168,17 +168,15 @@
                 <div class="slide-split_text position-relative d-flex align-items-center"
                   style="background-color: #f5e6e0;">
                   <div class="slideshow-text container p-3 p-xl-5">
-                    <h2
-                      class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
-                      Vehicle's<br /><strong>ACCESSORIES</strong></h2>
-                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">Accessories are the best way to
-                      update your vehicle look.</h6>
+                    <h2 class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
+                      Premium<br /><strong>AUTO PARTS</strong></h2>
+                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">Discover our wide selection of high-quality automotive parts and accessories.</p>
                   </div>
                 </div>
                 <div class="slide-split_media position-relative">
                   <div class="slideshow-bg" style="background-color: #f5e6e0;">
-                    <img loading="lazy" src="assets/images/shop/shop_banner3.jpg" width="630" height="450"
-                      alt="Women's accessories" class="slideshow-bg__img object-fit-cover" />
+                    <img loading="lazy" src="{{ asset('assets/images/banners/engine-parts-banner.jpg') }}" width="630" height="450"
+                      alt="Engine Parts" class="slideshow-bg__img object-fit-cover" />
                   </div>
                 </div>
               </div>
@@ -189,17 +187,15 @@
                 <div class="slide-split_text position-relative d-flex align-items-center"
                   style="background-color: #f5e6e0;">
                   <div class="slideshow-text container p-3 p-xl-5">
-                    <h2
-                      class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
-                      Vehicle's <br /><strong>ACCESSORIES</strong></h2>
-                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">ccessories are the best way to
-                      update your vehicle look.</h6>
+                    <h2 class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
+                      Performance<br /><strong>UPGRADES</strong></h2>
+                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">Enhance your vehicle's performance with our premium parts.</p>
                   </div>
                 </div>
                 <div class="slide-split_media position-relative">
                   <div class="slideshow-bg" style="background-color: #f5e6e0;">
-                    <img loading="lazy" src="assets/images/shop/shop_banner3.jpg" width="630" height="450"
-                      alt="Women's accessories" class="slideshow-bg__img object-fit-cover" />
+                    <img loading="lazy" src="{{ asset('assets/images/banners/performance-parts-banner.jpg') }}" width="630" height="450"
+                      alt="Performance Parts" class="slideshow-bg__img object-fit-cover" />
                   </div>
                 </div>
               </div>
@@ -210,17 +206,15 @@
                 <div class="slide-split_text position-relative d-flex align-items-center"
                   style="background-color: #f5e6e0;">
                   <div class="slideshow-text container p-3 p-xl-5">
-                    <h2
-                      class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
-                      Vehicle's <br /><strong>ACCESSORIES</strong></h2>
-                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">ccessories are the best way to
-                      update your vehicle look.</h6>
+                    <h2 class="text-uppercase section-title fw-normal mb-3 animate animate_fade animate_btt animate_delay-2">
+                      Essential<br /><strong>MAINTENANCE</strong></h2>
+                    <p class="mb-0 animate animate_fade animate_btt animate_delay-5">Keep your vehicle running smoothly with our maintenance parts.</p>
                   </div>
                 </div>
                 <div class="slide-split_media position-relative">
                   <div class="slideshow-bg" style="background-color: #f5e6e0;">
-                    <img loading="lazy" src="assets/images/shop/shop_banner3.jpg" width="630" height="450"
-                      alt="Women's accessories" class="slideshow-bg__img object-fit-cover" />
+                    <img loading="lazy" src="{{ asset('assets/images/banners/maintenance-parts-banner.jpg') }}" width="630" height="450"
+                      alt="Maintenance Parts" class="slideshow-bg__img object-fit-cover" />
                   </div>
                 </div>
               </div>
@@ -283,13 +277,17 @@
                 <div class="swiper-container background-img js-swiper-slider" data-settings='{"resizeObserver": true}'>
                   <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                      <a href="{{ route('shop.product.details',['product_slug'=>$product->slug]) }}"><img loading="lazy" src="{{ asset('uploads/products') }}/{{ $product->image }}" width="330"
-                          height="400" alt="{{ $product->name }}" class="pc__img"></a>
+                      <a href="{{ route('shop.product.details',['product_slug'=>$product->slug]) }}">
+                        <img loading="lazy" src="{{ asset('images') }}/{{ $product->image }}" width="330"
+                          height="400" alt="{{ $product->name }}" class="pc__img">
+                      </a>
                     </div>
                     <div class="swiper-slide">
                         @foreach (explode(",",$product->images) as $gimg)
-                      <a href="{{ route('shop.product.details',['product_slug'=>$product->slug]) }}"><img loading="lazy" src="{{ asset('uploads/products') }}/{{ $gimg }}"
-                          width="330" height="400" alt="{{ $product->name }}" class="pc__img"></a>
+                      <a href="{{ route('shop.product.details',['product_slug'=>$product->slug]) }}">
+                        <img loading="lazy" src="{{ asset('images') }}/{{ $gimg }}"
+                          width="330" height="400" alt="{{ $product->name }}" class="pc__img">
+                      </a>
                           @endforeach
                     </div>
                   </div>

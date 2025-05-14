@@ -13,6 +13,9 @@ class Order extends Model
 
     protected $fillable = [
         'user_id',
+        'name',
+        'email',
+        'phone',
         'subtotal',
         'discount',
         'tax',
@@ -20,6 +23,14 @@ class Order extends Model
         'coupon_code',
         'notes',
         'status'
+    ];
+
+    protected $casts = [
+        'user_id' => 'integer',
+        'subtotal' => 'decimal:2',
+        'discount' => 'decimal:2',
+        'tax' => 'decimal:2',
+        'total' => 'decimal:2'
     ];
 
     /**

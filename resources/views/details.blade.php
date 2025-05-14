@@ -16,9 +16,9 @@
                 <div class="swiper-wrapper">
 
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" class="h-auto" src="{{ asset('uploads/products') }}/{{ $product->image }}" width="674"
+                    <img loading="lazy" class="h-auto" src="{{ asset('images') }}/{{ $product->image }}" width="674"
                       height="674" alt="" />
-                    <a data-fancybox="gallery" href="{{ asset('uploads/products') }}/{{ $product->image }}" data-bs-toggle="tooltip"
+                    <a data-fancybox="gallery" href="{{ asset('images') }}/{{ $product->image }}" data-bs-toggle="tooltip"
                       data-bs-placement="left" title="Zoom">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <use href="#icon_zoom" />
@@ -28,9 +28,9 @@
 
                   @foreach (explode(',',$product->images) as $gimg)
                   <div class="swiper-slide product-single__image-item">
-                    <img loading="lazy" class="h-auto" src="{{ asset('uploads/products') }}/{{$gimg}}" width="674"
+                    <img loading="lazy" class="h-auto" src="{{ asset('images') }}/{{$gimg}}" width="674"
                       height="674" alt="" />
-                    <a data-fancybox="gallery" href="{{ asset('uploads/products') }}/{{$gimg}}" data-bs-toggle="tooltip"
+                    <a data-fancybox="gallery" href="{{ asset('images') }}/{{$gimg}}" data-bs-toggle="tooltip"
                       data-bs-placement="left" title="Zoom">
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <use href="#icon_zoom" />
@@ -52,9 +52,9 @@
             <div class="product-single__thumbnail">
               <div class="swiper-container">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide product-single__image-item"><img loading="lazy" class="h-auto" src="{{ asset('uploads/products/thumbnails') }}/{{ $product->image }}" width="104" height="104" alt="" /></div>
+                  <div class="swiper-slide product-single__image-item"><img loading="lazy" class="h-auto" src="{{ asset('images') }}/{{ $product->image }}" width="104" height="104" alt="" /></div>
                   @foreach (explode(',',$product->images) as $gimg)
-                  <div class="swiper-slide product-single__image-item"><img loading="lazy" class="h-auto" src="{{ asset('uploads/products/thumbnails') }}/{{$gimg}}" width="104" height="104" alt="" /></div>
+                  <div class="swiper-slide product-single__image-item"><img loading="lazy" class="h-auto" src="{{ asset('images') }}/{{$gimg}}" width="104" height="104" alt="" /></div>
                   @endforeach
                 </div>
               </div>
@@ -266,7 +266,7 @@
             </div>
             <div class="product-single__review-form">
               <form name="customer-review-form">
-                <h5>Be the first to review “Message Cotton T-Shirt”</h5>
+                <h5>Be the first to review "Message Cotton T-Shirt"</h5>
                 <p>Your email address will not be published. Required fields are marked *</p>
                 <div class="select-star-rating">
                   <label>Your rating *</label>
@@ -368,10 +368,10 @@
             <div class="swiper-slide product-card">
               <div class="pc__img-wrapper">
                 <a href="{{ route('shop.product.details',['product_slug'=>$rproduct->slug]) }}">
-                  <img loading="lazy" src="{{ asset('uploads/products') }}/{{ $rproduct->image }}" width="330" height="400"
+                  <img loading="lazy" src="{{ asset('images') }}/{{ $rproduct->image }}" width="330" height="400"
                     alt="{{ $rproduct->name }}" class="pc__img">
                     @foreach (explode(",",$rproduct->images) as $gimg)
-                  <img loading="lazy" src="{{ asset('uploads/products') }}/{{ $gimg }}" width="330" height="400"
+                  <img loading="lazy" src="{{ asset('images') }}/{{ $gimg }}" width="330" height="400"
                     alt="{{ $rproduct->name }}" class="pc__img pc__img-second">
                     @endforeach
                 </a>

@@ -318,15 +318,15 @@
                 <h4>Contact Information</h4>
                 <div class="mb-3">
                   <label>Name</label>
-                  <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}" readonly>
+                  <input type="text" class="form-control" name="name" value="{{ Auth::check() ? Auth::user()->name : '' }}" {{ Auth::check() ? 'readonly' : '' }}>
                 </div>
                 <div class="mb-3">
                   <label>Email</label>
-                  <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}" readonly>
+                  <input type="email" class="form-control" name="email" value="{{ Auth::check() ? Auth::user()->email : '' }}" {{ Auth::check() ? 'readonly' : '' }}>
                 </div>
                 <div class="mb-3">
                   <label>Phone</label>
-                  <input type="text" class="form-control" name="mobile" value="{{ Auth::user()->mobile }}" readonly>
+                  <input type="text" class="form-control" name="mobile" value="{{ Auth::check() ? Auth::user()->mobile : '' }}" {{ Auth::check() ? 'readonly' : '' }}>
                 </div>
 
                 <h4 class="mt-4">Payment Method</h4>
