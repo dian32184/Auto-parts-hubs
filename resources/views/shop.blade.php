@@ -45,18 +45,33 @@
               aria-labelledby="accordion-heading-1" data-bs-parent="#categories-list">
               <div class="accordion-body px-0 pb-0 pt-3 category-list">
                 <ul class="list list-inline mb-0">
-                  @foreach ($categories as $category)
+                  @foreach ($categories->whereNull('parent_id') as $parentCategory)
                   <li class="list-item">
                     <span class="menu-link py-1">
-                      <input type="checkbox" class="chk-category" name="categories" value="{{ $category->id }}"
-                      @if (in_array($category->id,explode(',',$f_categories))) checked="checked" @endif
+                      <input type="checkbox" class="chk-category" name="categories" value="{{ $parentCategory->id }}"
+                      @if (in_array($parentCategory->id,explode(',',$f_categories))) checked="checked" @endif
                       />
-                      {{ $category->name }}
+                      <strong>{{ $parentCategory->name }}</strong>
                     </span>
-                      <span class="text-right float-end"> {{ $category->products->count() }}</span>
+                    <span class="text-right float-end"> {{ $parentCategory->products->count() }}</span>
+                    
+                    @if($parentCategory->children->count() > 0)
+                    <ul class="list list-inline mb-0 ps-3 mt-2">
+                      @foreach($parentCategory->children as $childCategory)
+                      <li class="list-item">
+                        <span class="menu-link py-1">
+                          <input type="checkbox" class="chk-category" name="categories" value="{{ $childCategory->id }}"
+                          @if (in_array($childCategory->id,explode(',',$f_categories))) checked="checked" @endif
+                          />
+                          {{ $childCategory->name }}
+                        </span>
+                        <span class="text-right float-end"> {{ $childCategory->products->count() }}</span>
+                      </li>
+                      @endforeach
+                    </ul>
+                    @endif
                   </li>
                   @endforeach
-
                 </ul>
               </div>
             </div>

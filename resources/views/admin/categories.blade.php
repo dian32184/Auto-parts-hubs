@@ -43,33 +43,35 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Slug</th>
+                            <th>Parent Category</th>
                             <th>Products</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($categories as $category)
+                        @foreach ($categories->whereNull('parent_id') as $parentCategory)
                         <tr>
-                            <td>{{$category->id}}</td>    
+                            <td>{{$parentCategory->id}}</td>    
                             <td class="pname">
                                 <div class="image">
-                                    <img src="{{asset('uploads/categories')}}/{{$category->image}}" alt="{{ $category->name }}" class="image">
+                                    <img src="{{asset('uploads/categories')}}/{{$parentCategory->image}}" alt="{{ $parentCategory->name }}" class="image">
                                 </div>
                                 <div class="name">
-                                    <a href="#" class="body-title-2">{{$category->name}}</a>                                       
+                                    <a href="#" class="body-title-2"><strong>{{$parentCategory->name}}</strong></a>                                       
                                 </div>  
                             </td>
-                            <td>{{$category->slug}}</td>      
-                            <td><a href="{{route('admin.categories',['category_slug'=>$category->slug])}}" target="_blank">{{$category->products()->count()}}</a></td>                               
+                            <td>{{$parentCategory->slug}}</td>
+                            <td>-</td>      
+                            <td><a href="{{route('admin.categories',['category_slug'=>$parentCategory->slug])}}" target="_blank">{{$parentCategory->products()->count()}}</a></td>                               
                             <td>
                                 <div class="list-icon-function">
-                                    <a href="{{ route('admin.category.edit', ['id'=>$category->id]) }}">                                    
+                                    <a href="{{ route('admin.category.edit', ['id'=>$parentCategory->id]) }}">                                    
                                     <div class="item edit">
                                           <i class="icon-edit-3"></i>
                                    </div>
                                 </a>
                                 <div class="list-icon-function"> 
-                                    <form action="{{route('admin.category.delete',['id'=>$category->id])}}" method="POST">
+                                    <form action="{{route('admin.category.delete',['id'=>$parentCategory->id])}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="item text-danger delete">
@@ -79,6 +81,39 @@
                                 </div>
                             </td>
                         </tr>
+                        @foreach($parentCategory->children as $childCategory)
+                        <tr>
+                            <td>{{$childCategory->id}}</td>    
+                            <td class="pname">
+                                <div class="image">
+                                    <img src="{{asset('uploads/categories')}}/{{$childCategory->image}}" alt="{{ $childCategory->name }}" class="image">
+                                </div>
+                                <div class="name ps-4">
+                                    <a href="#" class="body-title-2">{{$childCategory->name}}</a>                                       
+                                </div>  
+                            </td>
+                            <td>{{$childCategory->slug}}</td>
+                            <td>{{$parentCategory->name}}</td>      
+                            <td><a href="{{route('admin.categories',['category_slug'=>$childCategory->slug])}}" target="_blank">{{$childCategory->products()->count()}}</a></td>                               
+                            <td>
+                                <div class="list-icon-function">
+                                    <a href="{{ route('admin.category.edit', ['id'=>$childCategory->id]) }}">                                    
+                                    <div class="item edit">
+                                          <i class="icon-edit-3"></i>
+                                   </div>
+                                </a>
+                                <div class="list-icon-function"> 
+                                    <form action="{{route('admin.category.delete',['id'=>$childCategory->id])}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <div class="item text-danger delete">
+                                          <i class="icon-trash-2"></i>
+                                   </div>
+                                </form>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
                         @endforeach                                  
                     </tbody>
                 </table>   

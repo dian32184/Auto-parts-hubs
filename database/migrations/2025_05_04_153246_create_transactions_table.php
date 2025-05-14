@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('order_id')->unsigned();
             $table->enum('mode',['cash','card','gcash']);
             $table->enum('status',['pending','approved','declined', 'refunded'])->default('pending');
+            $table->string('reference_number');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');

@@ -8,10 +8,11 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Usercontroller;
 use App\Http\Controllers\CouponController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Middleware\AuthAdmin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 
 Auth::routes();
 
@@ -28,12 +29,23 @@ Route::delete('cart/clear', [CartController::class,'empty_cart'])->name('cart.em
 
 Route::post('/cart/apply-coupon',[CartController::class,'apply_coupon_code'])->name('cart.coupon.apply');
 
-
 Route::middleware(['auth'])->group(function(){
     Route::get('/account-dashboard', [Usercontroller::class, 'index'])->name('user.index');
+    Route::post('/cart/place-order', [CartController::class, 'placeOrder'])->name('cart.place.order');
+    
+    // User Order routes
+    Route::get('/my-orders', [App\Http\Controllers\UserOrderController::class, 'index'])->name('user.orders.index');
+    Route::get('/my-orders/{order}', [App\Http\Controllers\UserOrderController::class, 'show'])->name('user.orders.show');
 });
+
 Route::middleware(['auth',AuthAdmin::class])->group(function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    
+    // Admin Order Routes
+    Route::get('/admin/orders', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin.orders.index');
+    Route::get('/admin/orders/{order}', [App\Http\Controllers\Admin\OrderController::class, 'show'])->name('admin.orders.show');
+    Route::put('/admin/orders/{order}/status', [App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('admin.orders.update-status');
+    
     Route::get('/admin/brands',[AdminController::class,'brands'])->name('admin.brands');
     Route::get('/admin/brand/add', [AdminController::class,'add_brand'])->name('admin.brand.add');
     Route::post('/admin/brand/store',[AdminController::class,'brand_store'])->name('admin.brand.store');
@@ -82,4 +94,15 @@ Route::middleware(['auth',AuthAdmin::class])->group(function(){
     Route::put('/admin/coupon/update', [AdminController::class, 'coupon_update'])->name('admin.coupon.update');
     Route::delete('/admin/coupon/{id}/delete', [AdminController::class, 'coupon_delete'])->name('admin.coupon.delete');
 
+    Route::get('/admin/add-auto-parts-categories', [AdminController::class, 'add_auto_parts_categories'])->name('admin.add.auto.parts.categories');
+    Route::get('/admin/add-auto-parts-products', [AdminController::class, 'add_auto_parts_products'])->name('admin.add.auto.parts.products');
+
+    // Add motor parts categories and products
+    Route::get('/admin/add-motor-parts', [App\Http\Controllers\Admin\MotorPartsController::class, 'addMotorPartsCategories'])->name('admin.add.motor.parts');
+
+    Route::get('/admin/quick-add-motor-parts', [App\Http\Controllers\AdminController::class, 'quick_add_motor_parts'])->name('admin.quick_add_motor_parts');
 });
+
+// Cart & Checkout Routes
+Route::post('/confirm-order', [CheckoutController::class, 'confirmOrder'])->name('confirm-order');
+Route::post('/place-order', [CheckoutController::class, 'placeOrder'])->name('place-order');

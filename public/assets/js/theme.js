@@ -1331,12 +1331,9 @@ function pureFadeOut(e) {
     return new bootstrap.Popover(popoverTriggerEl, {'html':true})
   });
 
-  $('.shopping-cart .btn-checkout').off('click').on('click', function() {
-    window.location.href='./shop_checkout.html';
-  });
-
   $('.checkout-form .btn-checkout').off('click').on('click', function() {
-    window.location.href='./shop_order_complete.html';
+    // Submit the form instead of redirecting
+    $(this).closest('form').submit();
   });
 
   document.querySelector('.js-show-register').addEventListener('click', function(e) {

@@ -37,6 +37,17 @@
                     <input class="flex-grow" type="text" placeholder="Category Slug" name="slug" tabindex="0" value="{{old('slug')}}" aria-required="true" required="">
                 </fieldset>
                 @error("slug") <span class="alert alert-danger text-center">{{$message}}</span> @enderror
+                <fieldset class="name">
+                    <div class="body-title">Parent Category</div>
+                    <select class="flex-grow form-select" name="parent_id">
+                        <option value="">None (Top Level Category)</option>
+                        @foreach($categories->whereNull('parent_id') as $category)
+                            <option value="{{ $category->id }}" {{ old('parent_id') == $category->id ? 'selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </fieldset>
                 <fieldset>
                     <div class="body-title">Upload images <span class="tf-color-1">*</span></div>
                     <div class="upload-image flex-grow">

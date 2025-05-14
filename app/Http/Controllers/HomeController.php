@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,6 +15,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $featuredProducts = Product::where('featured', 1)
+            ->orWhere('sale_price', '>', 0)
+            ->latest()
+            ->take(8)
+            ->get();
+            
+        $newArrivals = Product::latest()
+            ->take(8)
+            ->get();
+
+        $carouselProducts = Product::inRandomOrder()
+            ->take(8)
+            ->get();
+
+        return view('index', compact('featuredProducts', 'newArrivals', 'carouselProducts'));
     }
 }
